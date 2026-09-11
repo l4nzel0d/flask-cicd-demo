@@ -1,0 +1,17 @@
+.git
+.gitignore
+.gitattributes
+jenkins/
+screenshots/
+reports/
+deployment/
+README.md
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+coverage.xml
+venv/
+.venv/
+.idea/
+.vscode/

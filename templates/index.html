@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>flask-cicd-demo — {{ info.label }}</title>
+  <style>
+    :root { --accent: {{ info.color }}; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: #0f172a; color: #e2e8f0;
+    }
+    .card {
+      width: min(560px, 92vw);
+      background: #1e293b;
+      border-radius: 16px;
+      border-top: 8px solid var(--accent);
+      padding: 32px 36px 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+    }
+    .badge {
+      display: inline-block;
+      background: var(--accent); color: #0f172a;
+      font-weight: 700; letter-spacing: .08em;
+      padding: 6px 16px; border-radius: 999px; font-size: 14px;
+    }
+    h1 { margin: 18px 0 4px; font-size: 26px; }
+    .sub { margin: 0 0 24px; color: #94a3b8; font-size: 14px; }
+    table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    td { padding: 9px 0; border-bottom: 1px solid #334155; }
+    td.k { color: #94a3b8; width: 45%; }
+    td.v { font-family: Consolas, "Courier New", monospace; color: #f1f5f9; }
+    .links { margin-top: 22px; font-size: 14px; }
+    .links a { color: var(--accent); text-decoration: none; margin-right: 16px; }
+    .links a:hover { text-decoration: underline; }
+    footer { margin-top: 20px; font-size: 12px; color: #64748b; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="badge">{{ info.label }}</span>
+    <h1>flask-cicd-demo</h1>
+    <p class="sub">Практическая работа №4 — CI/CD на Jenkins</p>
+
+    <table>
+      <tr><td class="k">Окружение</td><td class="v">{{ info.env }}</td></tr>
+      <tr><td class="k">Версия приложения</td><td class="v">{{ info.version }}</td></tr>
+      <tr><td class="k">Сборка Jenkins</td><td class="v">#{{ info.build }}</td></tr>
+      <tr><td class="k">Коммит Git</td><td class="v">{{ info.commit }}</td></tr>
+      <tr><td class="k">Хост (контейнер)</td><td class="v">{{ info.hostname }}</td></tr>
+    </table>
+
+    <div class="links">
+      <a href="/health">/health</a>
+      <a href="/env">/env</a>
+      <a href="/api/info">/api/info</a>
+    </div>
+
+    <footer>Васильев Б. А., ИКБО-20-23</footer>
+  </div>
+</body>
+</html>
